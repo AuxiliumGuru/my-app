@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-
+import Footer from '../../../../components/footer';
 export default function Main() {
     const [course, setCourse] = useState('');
     const [unit, setUnit] = useState('');
@@ -258,6 +258,13 @@ export default function Main() {
 
                 </div>
             </div>
+            <footer>
+                <Footer/>
+            </footer>
         </main>  
+
+
+
+
     )
 };
