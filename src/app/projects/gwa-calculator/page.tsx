@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Footer from '../../../../components/footer';
 export default function Main() {
     const [course, setCourse] = useState('');
@@ -13,10 +13,10 @@ export default function Main() {
     const[average, setAverage] = useState('0');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target; // Destructure name and value from event.target
+        let { name, value } = event.target; // Destructure name and value from event.target
         switch (name) {
           case 'course':
-            setCourse(value);
+            setCourse(value.toUpperCase());
             break;
           case 'unit':
             setUnit(value);
@@ -39,7 +39,7 @@ export default function Main() {
         addRow(course, unit, grade);
         // Clear input fields after adding the row 
         setCourse('');
-        setUnit('');
+        // setUnit('');
         setGrade('');
     };
 
@@ -62,6 +62,49 @@ export default function Main() {
         return totalUnit ? (totalGrade / totalUnit).toFixed(2) : 0.00;
     };
 
+    // const addRow = (course: string, unit: string, grade: string) => {
+    //     const tableBody = document.getElementById('info_table')!.getElementsByTagName('tbody')[0];
+    //     const newRowRef = useRef(null);
+    //     // Define table row and cells using JSX
+    //     const newRow = (
+    //       <tr ref={newRowRef}>
+    //         <td className="px-4 py-2">{course}</td>
+    //         <td className="px-4 py-2">{unit}</td>
+    //         <td className="px-4 py-2">{grade}</td>
+    //         <td className="px-4 py-2">
+    //           <button className="text-red-500 hover:underline">Delete</button>
+    //         </td>
+    //       </tr>
+    //     );
+      
+    //     // Define delete button functionality within JSX
+    //     const handleDelete = () => {
+    //       const rowIndex = tableBody.querySelectorAll('tr').length - 1;
+      
+    //       if (newRowRef.current) { // Check if ref has a value before accessing
+    //         tableBody.removeChild(newRowRef.current);
+    //       }
+      
+    //       // Update grade and unit lists and average (assuming functions exist)
+    //       setGradeList((prevList) => prevList.filter((_, index) => index !== rowIndex));
+    //       setUnitList((prevList) => prevList.filter((_, index) => index !== rowIndex));
+    //       const newAverage = calculateAverage();
+    //       setAverage(String(newAverage));
+      
+    //       if (tableBody.querySelectorAll('tr').length === 0) {
+    //         setGradeList([]);
+    //         setUnitList([]);
+    //       }
+    //     };
+      
+    //     // Render the row with the delete button click handler
+    //     return (
+    //       <div>
+    //         {newRow}
+    //         <button onClick={handleDelete}>Delete</button>
+    //       </div>
+    //     );
+    // };
     const addRow = (course: string, unit: string, grade: string) => {
         const tableBody = document.getElementById('info_table')!.getElementsByTagName('tbody')[0];
       
@@ -71,7 +114,8 @@ export default function Main() {
         // Create table data elements for each column
         const subjectCell = document.createElement('td');
         subjectCell.className = 'px-4 py-2';
-        subjectCell.textContent = course;
+        const upperCaseCourse = course.toUpperCase();
+        subjectCell.textContent = upperCaseCourse;
       
         const unitCell = document.createElement('td');
         unitCell.className = 'px-4 py-2';
