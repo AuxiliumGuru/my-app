@@ -1,6 +1,6 @@
 export default function Footer() {
 
     return (
-        <p>Auxghlann</p>
+        <p>&copy; {new Date().getFullYear()} Auxghlann</p>
     )
 }
