@@ -205,7 +205,7 @@ export default function Main() {
     
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between p-24 pb-4">
             {/* <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
                 <h1>Hello world!</h1>
             </div> */}
@@ -302,10 +302,10 @@ export default function Main() {
 
                 </div>
             </div>
-            <footer>
-                <Footer/>
-            </footer>
+
+            <Footer />
         </main>  
+        
 
 
 
