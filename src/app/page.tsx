@@ -16,7 +16,7 @@ export default function Home() {
               height={50} // Add height
             />
         </div> {/* Adjust logo text as needed */}
-        <nav className="space-x-4">
+        <nav className="space-x-2 md:space-x-4 lg:space-x-10">
           <a href="/" className="text-gray-600 hover:text-gray-800 font-medium">Home</a>
           <a href="/projects" className="text-gray-600 hover:text-gray-800 font-medium">Projects</a>
           <a href="/about" className="text-gray-600 hover:text-gray-800 font-medium">About</a>
@@ -27,7 +27,7 @@ export default function Home() {
         {/* Add your portfolio content here, such as sections for projects, skills, etc. */}
 
         {/* Home  Section */}
-        <section className="min-h-screen flex flex-col lg:flex-row items-center justify-center pb-20 space-y-2 md:space-y-8 lg:space-y-2"> {/* Increase space between items on larger screens */}
+        <section className="min-h-screen flex flex-col lg:flex-row items-center justify-center lg:pb-20 space-y-2 md:space-y-8 lg:space-y-2"> {/* Increase space between items on larger screens */}
           <Image
             src="/profile-pic.png"
             alt="allan khester mesa profile picture"
@@ -35,7 +35,7 @@ export default function Home() {
             width={192} // Add width
             height={192} // Add height
           />
-          <div>
+          <div className="pb-20 md:pb-10 lg:pb-0">
             <h1 className="text-3xl font-bold text-gray-800 md:text-4xl lg:text-5xl">Allan Khester Mesa</h1> {/* Increase text size on larger screens */}
             <p className="text-gray-600 text-lg md:text-xl lg:text-2xl">Computer Science Student</p> {/* Increase text size on larger screens */}
           </div>
@@ -46,11 +46,11 @@ export default function Home() {
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 md:text-3xl lg:text-4xl">About Me</h2>
             <p className="mt-4 text-gray-600 md:px-20 lg:px-40 xl:px-60">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna varius, blandit
-              adipiscing nisl. Aliquam erat volutpat. Mauris eget nisi quis sem facilisis semper ac in est. Vivamus faucibus
-              ullamcorper lorem eget viverra. Pellentesque ac nulla ipsum. Nunc vitae pretium magna. Nulla facilisi. Morbi
-              pellentesque non nulla a scelerisque. Sed auctor auctor turpis, a vehicula quam. Sed vitae nisi fermentum,
-              vehicula elit non, aliquet ligula. Sed et venenatis odio, id convallis metus.
+              Hi! I'm Allan, a sophomore Computer Science Student from the University of Saint Louis - Tuguegarao. 
+              I'm a passionate developer who loves to learn and explore more about the world of technology. The areas of interest that 
+              I'm currently pursuing are back-end development, machine learning, Artificial Intelligence (AI), Data Engineering, and someday, 
+              some open-source contributions. I'm also a digital creator that creates contents about 
+              showcasing my projects and some tutorials on how to code.
             </p>
           </div>
         </section>
