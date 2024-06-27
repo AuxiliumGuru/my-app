@@ -1,12 +1,12 @@
+'use client'
 import Link from 'next/link';
 import Image from 'next/image';
-
 export default function ProjectCard() {
   return (
-
+    
     <Link href="/projects/gwa-calculator" passHref>
-        <div className="max-w-sm rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
-            <Image src="/path-to-your-image.jpg" alt="Project Image" width={300} height={100} layout="responsive" />
+        <div className="max-w-sm rounded-md overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+            <Image src="/calculator.jpg" alt="Project Image" width={100} height={50} />
             <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">Gwa-Calculator</div>
             <p className="text-gray-700 text-base">
