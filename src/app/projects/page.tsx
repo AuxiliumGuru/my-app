@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import ProjectCard from '../../../components/ProjectCard';
 import Navbar from '../../../components/Navbar';
 
@@ -10,6 +11,8 @@ export default function Project() {
 
         <div className="flex flex-row py-8 px-6">
             <ProjectCard />
+            
+
         </div>
         
     </div>

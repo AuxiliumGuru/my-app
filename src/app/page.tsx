@@ -17,17 +17,17 @@ export default function Home() {
             />
         </div> {/* Adjust logo text as needed */}
         <nav className="space-x-2 md:space-x-4 lg:space-x-10">
-          <a href="/" className="text-gray-600 hover:text-gray-800 font-medium">Home</a>
+          <a href="#Home" className="text-gray-600 hover:text-gray-800 font-medium">Home</a>
           <a href="/projects" className="text-gray-600 hover:text-gray-800 font-medium">Projects</a>
-          <a href="/about" className="text-gray-600 hover:text-gray-800 font-medium">About</a>
-          <a href="/contact" className="text-gray-600 hover:text-gray-800 font-medium">Contact</a>
+          <a href="#About" className="text-gray-600 hover:text-gray-800 font-medium">About</a>
+          <a href="#Contact" className="text-gray-600 hover:text-gray-800 font-medium">Contact</a>
         </nav>
       </header>
       <main className="flex flex-col px-8 pb-16"> {/* Main content area */}
         {/* Add your portfolio content here, such as sections for projects, skills, etc. */}
 
         {/* Home  Section */}
-        <section className="min-h-screen flex flex-col lg:flex-row items-center justify-center lg:pb-20 space-y-2 md:space-y-8 lg:space-y-2"> {/* Increase space between items on larger screens */}
+        <section id="Home" className="min-h-screen flex flex-col lg:flex-row items-center justify-center lg:pb-20 space-y-2 md:space-y-8 lg:space-y-2"> {/* Increase space between items on larger screens */}
           <Image
             src="/profile-pic.png"
             alt="allan khester mesa profile picture"
@@ -42,7 +42,7 @@ export default function Home() {
         </section>
 
         {/* About me Section*/}
-        <section className="min-h-screen flex flex-col justify-center items-center">
+        <section id="About" className="min-h-screen flex flex-col justify-center items-center">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 md:text-3xl lg:text-4xl">About Me</h2>
             <p className="mt-4 text-gray-600 md:px-20 lg:px-40 xl:px-60">
@@ -56,7 +56,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section className="min-h-screen flex flex-col justify-center items-center">
+        <section id="Contact" className="min-h-screen flex flex-col justify-center items-center">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 md:text-3xl lg:text-4xl">Contact</h2>
             <div className="flex justify-center mt-6">
