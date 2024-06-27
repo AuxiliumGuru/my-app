@@ -4,6 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
+  const aboutMe = `Hi! I'm Allan, a sophomore Computer Science Student from the University of Saint Louis - Tuguegarao. 
+              I'm a passionate developer who loves to learn and explore more about the world of technology. The areas of interest that 
+              I'm currently pursuing are back-end development, machine learning, Artificial Intelligence (AI), Data Engineering, and someday, 
+              some open-source contributions. I'm also a digital creator that creates contents about 
+              showcasing my projects and some tutorials on how to code.`;
   return (
     <div className="min-h-screen"> {/* Set background color for entire page */}
       <header className="flex justify-between items-center py-4 px-8 shadow-md">
@@ -46,11 +51,7 @@ export default function Home() {
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 md:text-3xl lg:text-4xl">About Me</h2>
             <p className="mt-4 text-gray-600 md:px-20 lg:px-40 xl:px-60">
-              Hi! I'm Allan, a sophomore Computer Science Student from the University of Saint Louis - Tuguegarao. 
-              I'm a passionate developer who loves to learn and explore more about the world of technology. The areas of interest that 
-              I'm currently pursuing are back-end development, machine learning, Artificial Intelligence (AI), Data Engineering, and someday, 
-              some open-source contributions. I'm also a digital creator that creates contents about 
-              showcasing my projects and some tutorials on how to code.
+              {aboutMe}
             </p>
           </div>
         </section>
