@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
-  const aboutMe = `Hi! I'm Allan, a sophomore Computer Science Student from the University of Saint Louis - Tuguegarao. 
+  const aboutMe = `Hi! I'm Allan, current a Junior Computer Science Student from the University of Saint Louis - Tuguegarao. 
               I'm a passionate developer who loves to learn and explore more about the world of technology. The areas of interest that 
               I'm currently pursuing are back-end development, machine learning, Artificial Intelligence (AI), Data Engineering, and someday, 
               some open-source contributions. I'm also a digital creator that creates contents about 
