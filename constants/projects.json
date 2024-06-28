@@ -1,0 +1,21 @@
+{
+    "projects": 
+        [
+            {
+                "id": 1,
+                "name": "Gwa-Calculator",
+                "author" : "Quokka",
+                "description": "A calculator used to compute a general weighted average of a student",
+                "image": "/calculator.jpg",
+                "link": "/projects/gwa-calculator"
+            },
+            {
+                "id": 2,
+                "name": "Project 2",
+                "author" : "Quokka",
+                "description": "Description 2",
+                "image": "/project2.jpg",
+                "link": "/projects/project2"
+            }
+        ]   
+}
