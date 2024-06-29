@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useRef, useEffect } from 'react';
-import Footer from '../../../../components/footer';
+import Footer from '../../../components/footer';
 export default function Main() {
     const [course, setCourse] = useState('');
     const [unit, setUnit] = useState('');

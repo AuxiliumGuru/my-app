@@ -5,7 +5,7 @@
                 "id": 1,
                 "name": "Gwa-Calculator",
                 "author" : "Quokka",
-                "description": "A calculator used to compute a general weighted average of a student",
+                "description": "A calculator to compute the General Weighted Average of a student",
                 "image": "/calculator.jpg",
                 "link": "/projects/gwa-calculator"
             },
