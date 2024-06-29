@@ -12,10 +12,10 @@ export default function Navbar() {
             />
         </div> {/* Adjust logo text as needed */}
         <nav className="space-x-2 md:space-x-4 lg:space-x-10">
-            <a href="#Home" className="text-gray-600 hover:text-gray-800 font-medium">Home</a>
+            <a href="./" className="text-gray-600 hover:text-gray-800 font-medium">Home</a>
             <a href="/projects" className="text-gray-600 hover:text-gray-800 font-medium">Projects</a>
-            <a href="#About" className="text-gray-600 hover:text-gray-800 font-medium">About</a>
-            <a href="#Contact" className="text-gray-600 hover:text-gray-800 font-medium">Contact</a>
+            <a href="./#About" className="text-gray-600 hover:text-gray-800 font-medium">About</a>
+            <a href="./#Contact" className="text-gray-600 hover:text-gray-800 font-medium">Contact</a>
         </nav>
     </header>
   )
