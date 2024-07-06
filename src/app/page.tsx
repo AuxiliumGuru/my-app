@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/footer";
 
 export default function Home() {
   const aboutMe = `Hi! I'm Allan, currently a Junior Computer Science Student from the University of Saint Louis - Tuguegarao. 
@@ -65,9 +66,7 @@ export default function Home() {
         </section>
 
       </main>
-      <footer className="text-center py-4 bg-gray-200 text-gray-600">
-        <p>&copy; {new Date().getFullYear()} Auxghlann</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
