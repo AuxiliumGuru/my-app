@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useRef, useEffect } from 'react';
 import Footer from '../../../components/footer';
+import ProjectsNavbar from '@/components/ProjectsNavbar';
 export default function Main() {
     const [course, setCourse] = useState('');
     const [unit, setUnit] = useState('');
@@ -205,109 +206,107 @@ export default function Main() {
     
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24 pb-4">
-            {/* <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-                <h1>Hello world!</h1>
-            </div> */}
-            <div className="flex flex-col">
-                <div className="flex flex-row gap-2">
-                    <div className="w-full">
-                        <label htmlFor="course" className="block text-sm font-medium mb-2">Courses</label>
-                        <input 
-                            type="text" 
-                            id="course" 
-                            name="course" 
-                            placeholder="Course Name"
-                            value={course}
-                            onChange={handleChange} 
-                            className="px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full" 
-                        />
+        <div className="min-h-screen">
+            <ProjectsNavbar />
+            <main className="flex flex-col min-h-screen items-center justify-between p-24">
+                {/* <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+                    <h1>Hello world!</h1>
+                </div> */}
+                <div className="flex flex-col">
+                    <div className="flex flex-row gap-2">
+                        <div className="w-full">
+                            <label htmlFor="course" className="block text-sm font-medium mb-2">Courses</label>
+                            <input 
+                                type="text" 
+                                id="course" 
+                                name="course" 
+                                placeholder="Course Name"
+                                value={course}
+                                onChange={handleChange} 
+                                className="px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full" 
+                            />
+                        </div>
+                        <div className="w-full">
+                            <label htmlFor="grade" className="block text-sm font-medium mb-2">Grades</label>
+                            <input 
+                                type="text" 
+                                id="grade" 
+                                name="grade" 
+                                placeholder="Grade"
+                                value={grade}
+                                onChange={handleChange} 
+                                className="px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full" 
+                            />
+                        </div>
+                        <div className="w-full">
+                            <label htmlFor="unit" className="block text-sm font-medium mb-2">Units</label>
+                            <input 
+                                type="text" 
+                                id="unit" 
+                                name="unit" 
+                                placeholder="Units"
+                                value={unit} 
+                                onChange={handleChange} 
+                                className="px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full" 
+                            />
+                        </div>
                     </div>
-                    <div className="w-full">
-                        <label htmlFor="grade" className="block text-sm font-medium mb-2">Grades</label>
-                        <input 
-                            type="text" 
-                            id="grade" 
-                            name="grade" 
-                            placeholder="Grade"
-                            value={grade}
-                            onChange={handleChange} 
-                            className="px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full" 
-                        />
+                    <div className="flex flex-row gap-2 mt-2">
+                        <button 
+                            className="w-full bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            onClick={handleAddBtn}
+                        >
+                            Add Course
+                        </button>
+                        <button 
+                            onClick={handleReset}
+                            className="w-full bg-gray-400 text-white px-4 py-2 rounded-md shadow-sm hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                        >
+                            Reset
+                        </button>
                     </div>
-                    <div className="w-full">
-                        <label htmlFor="unit" className="block text-sm font-medium mb-2">Units</label>
-                        <input 
-                            type="text" 
-                            id="unit" 
-                            name="unit" 
-                            placeholder="Units"
-                            value={unit} 
-                            onChange={handleChange} 
-                            className="px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full" 
-                        />
+
+                    <div className="flex flex-col gap-4 mt-4">
+
+                        <table id="info_table" className="w-full rounded-lg shadow-md border border-gray-300">
+                            <thead>
+                            <tr className="bg-gray-200 text-left text-sm font-medium">
+                                <th className="px-4 py-2">Subject</th>
+                                <th className="px-4 py-2">Units</th>
+                                <th className="px-4 py-2">Final Grade</th>
+                                <th className="px-4 py-2">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
+                        <table id="ave_table" className="w-full rounded-lg shadow-md border border-gray-300">
+                            <tbody>
+                            <tr>
+                                <td className="px-4 py-2 text-left text-sm font-medium">
+                                    <span className="text-blue-500">
+                                        Average: 
+                                        <span className="text-blue-500"> {average}</span>
+                                        %
+                                    </span>
+                                </td>
+                                <td className="px-4 py-2 flex items-center justify-end">  
+                                    <button 
+                                        onClick={handleClearBtn}
+                                        className="px-2 py-1 text-xs font-medium rounded-md bg-gray-400 text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                                    >
+                                        Clear Table
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div className="flex flex-row gap-2 mt-2">
-                    <button 
-                        className="w-full bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                        onClick={handleAddBtn}
-                    >
-                        Add Course
-                    </button>
-                    <button 
-                        onClick={handleReset}
-                        className="w-full bg-gray-400 text-white px-4 py-2 rounded-md shadow-sm hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-                    >
-                        Reset
-                    </button>
-                </div>
-
-                <div className="flex flex-col gap-4 mt-4">
-
-                    <table id="info_table" className="w-full rounded-lg shadow-md border border-gray-300">
-                        <thead>
-                        <tr className="bg-gray-200 text-left text-sm font-medium">
-                            <th className="px-4 py-2">Subject</th>
-                            <th className="px-4 py-2">Units</th>
-                            <th className="px-4 py-2">Final Grade</th>
-                            <th className="px-4 py-2">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-
-                    <table id="ave_table" className="w-full rounded-lg shadow-md border border-gray-300">
-                        <tbody>
-                        <tr>
-                            <td className="px-4 py-2 text-left text-sm font-medium">
-                                <span className="text-blue-500">
-                                    Average: 
-                                    <span className="text-blue-500"> {average}</span>
-                                    %
-                                </span>
-                            </td>
-                            <td className="px-4 py-2 flex items-center justify-end">  
-                                <button 
-                                    onClick={handleClearBtn}
-                                    className="px-2 py-1 text-xs font-medium rounded-md bg-gray-400 text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-                                >
-                                    Clear Table
-                                </button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-
-            <Footer />
-        </main>  
-        
-
-
+            </main>
+            <Footer />  
+        </div>
 
 
     )
