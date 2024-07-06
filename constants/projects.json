@@ -11,11 +11,11 @@
             },
             {
                 "id": 2,
-                "name": "Project 2",
+                "name": "APOD Viewer",
                 "author" : "Quokka",
-                "description": "Description 2",
-                "image": "/project2.jpg",
-                "link": "/projects/project2"
+                "description": "Astronomy Picture of the Day Viewer",
+                "image": "/APOD.png",
+                "link": "/projects/apod"
             }
         ]   
 }
