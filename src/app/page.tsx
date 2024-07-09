@@ -1,4 +1,7 @@
 'use client'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import React, { useEffect } from 'react';
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -6,6 +9,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
 
 export default function Home() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200, // You can adjust the animation duration
+    });
+  }, []);
+
   const aboutMe = `Hi! I'm Allan, currently a Junior Computer Science Student from the University of Saint Louis - Tuguegarao. 
               I'm a passionate developer who loves to learn, teach, and explore more about the world of technology. The areas of interest that 
               I'm currently pursuing are Back-end Development, Machine Learning, Artificial Intelligence (AI), Data Engineering, and someday, 
@@ -17,7 +27,7 @@ export default function Home() {
         {/* Add your portfolio content here, such as sections for projects, skills, etc. */}
 
         {/* Home  Section */}
-        <section id="Home" className="min-h-screen flex flex-col lg:flex-row items-center justify-center lg:pb-20 space-y-2 md:space-y-8 lg:space-y-2"> {/* Increase space between items on larger screens */}
+        <section id="Home" className="min-h-screen flex flex-col lg:flex-row items-center justify-center lg:pb-20 space-y-2 md:space-y-8 lg:space-y-2" data-aos="fade-up"> {/* Increase space between items on larger screens */}
           <Image
             src="/profile-pic.png"
             alt="allan khester mesa profile picture"
@@ -32,7 +42,7 @@ export default function Home() {
         </section>
 
         {/* About me Section*/}
-        <section id="About" className="min-h-screen flex flex-col justify-center items-center">
+        <section id="About" className="min-h-screen flex flex-col justify-center items-center"  data-aos="fade-up">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 md:text-3xl lg:text-4xl">About Me</h2>
             <p className="mt-4 text-gray-600 md:px-20 lg:px-40 xl:px-60">
@@ -42,7 +52,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="Contact" className="min-h-screen flex flex-col justify-center items-center">
+        <section id="Contact" className="min-h-screen flex flex-col justify-center items-center"  data-aos="fade-up">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 md:text-3xl lg:text-4xl">Contact</h2>
             <div className="flex justify-center mt-6">
