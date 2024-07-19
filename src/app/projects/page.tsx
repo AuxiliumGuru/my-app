@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar';
 import projectsData from '../../../constants/projects.json'; // Adjust the path as necessary
 import Link from 'next/link';
 import Image from 'next/image';
+import Footer from '@/components/footer';
 
 export default function ProjectPage() { // Renamed to avoid conflict with the Project interface
 
@@ -20,7 +21,7 @@ export default function ProjectPage() { // Renamed to avoid conflict with the Pr
     <div className="min-h-screen">
       
       <Navbar />
-      <div className="flex flex-row py-8 px-6 flex-wrap"> {/* Added flex-wrap for responsiveness */}
+      <div className="flex flex-row py-8 px-6 flex-wrap min-h-screen"> {/* Added flex-wrap for responsiveness */}
         {projects.map((project) => (
           <Link key={project.id} href={project.link} passHref>
             <div className="max-w-sm rounded-md overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer m-4">
@@ -38,6 +39,7 @@ export default function ProjectPage() { // Renamed to avoid conflict with the Pr
           </Link>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
