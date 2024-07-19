@@ -23,7 +23,7 @@ export default function ProjectPage() { // Renamed to avoid conflict with the Pr
       <Navbar />
       <div className="flex flex-row py-8 px-6 flex-wrap min-h-screen"> {/* Added flex-wrap for responsiveness */}
         {projects.map((project) => (
-          <Link key={project.id} href={project.link} passHref>
+          <Link key={project.id} href={project.link} passHref prefetch={false}>
             <div className="max-w-sm rounded-md overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer m-4">
               <Image src={project.image} alt="Project Image" width={100} height={50} layout="responsive" />
               <div className="px-6 py-4">
