@@ -16,6 +16,14 @@
                 "description": "Astronomy Picture of the Day Viewer",
                 "image": "/APOD.png",
                 "link": "/projects/apod"
+            },
+            {
+                "id": 3,
+                "name": "Password Generator",
+                "author" : "Quokka",
+                "description": "A password generator and tester",
+                "image": "/pass_gen.jpg",
+                "link": "/projects/pass_gen"
             }
         ]   
 }
