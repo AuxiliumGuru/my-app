@@ -24,6 +24,14 @@
                 "description": "A password generator and tester",
                 "image": "/pass_gen.jpg",
                 "link": "/projects/pass_gen"
+            },
+            {
+                "id": 4,
+                "name": "Random Fact Generator",
+                "author" : "Quokka",
+                "description": "A random useless fact generator",
+                "image": "/rand_fact.jpg",
+                "link": "/projects/rand_fact"
             }
         ]   
 }
