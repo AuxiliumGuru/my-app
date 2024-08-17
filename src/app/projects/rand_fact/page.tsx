@@ -75,10 +75,10 @@ export default function RandFact() {
                     <div className="text-center">
                         {activeTab === 'randomFact' && (
                             <div>
-                                <p className="mt-3 text-2xl text-gray-700">
-                                    "
+                                <p className="mt-3 text-2xl text-gray-700 italic">
+                                    
                                     {fact?.fact || "Random Fact"}
-                                    "
+                                    
                                 </p>
                                 <button
                                     className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
@@ -90,10 +90,10 @@ export default function RandFact() {
                         )}
                         {activeTab === 'todaysFact' && (
                             <div>
-                                <p className="mt-3 text-2xl text-gray-700">
-                                    "
+                                <p className="mt-3 text-2xl text-gray-700 italic">
+                                    
                                     {todayFact?.fact || "Random Fact"}
-                                    "
+                                    
                                 </p>
                                 {!todayFactGenerated && (
                                     <button
