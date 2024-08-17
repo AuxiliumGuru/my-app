@@ -12,7 +12,7 @@ interface TestResult {
 
 async function generatePassword(length: number, setPassword: (password: string) => void): Promise<void> {
   try {
-    const response = await fetch(`${baseURL}/generate_password`, {
+    const response = await fetch(`${baseURL}/pass/generate_password`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ async function generatePassword(length: number, setPassword: (password: string) 
 
 async function testPassword(password: string, setTestResult: (result: { entropy: number; strength: string }) => void): Promise<void> {
   try {
-    const response = await fetch(`${baseURL}/test_password`, {
+    const response = await fetch(`${baseURL}/pass/test_password`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
