@@ -69,7 +69,7 @@ export default function RandFact() {
                             className={`px-4 py-2 mx-2 rounded ${activeTab === 'todaysFact' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'}`}
                             onClick={() => setActiveTab('todaysFact')}
                         >
-                            Today's Random Fact
+                            Today&apos;s Random Fact
                         </button>
                     </div>
                     <div className="text-center">
