@@ -13,34 +13,63 @@ export default function Main() {
     const [unitList, setUnitList] = useState<number[]>([]);
     const[average, setAverage] = useState('0');
 
+
+    // Edit button reqs
+    const[isEditing, setIsEditing] = useState<boolean>(false);
+
+    const [editIndex, setEditIndex] = useState<number | null>(null);
+
+    const [editCourse, setEditCourse] = useState<string>('');
+    const [editUnit, setEditUnit] = useState<string>('');
+    const [editGrade, setEditGrade] = useState<string>('');
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        let { name, value } = event.target; // Destructure name and value from event.target
+        const { name, value } = event.target;
         switch (name) {
-          case 'course':
-            setCourse(value.toUpperCase());
-            break;
-          case 'unit':
-            setUnit(value);
-            break;
-          case 'grade':
-            setGrade(value);
-            break;
-          default:
-            break;
+            case 'course':
+                setCourse(value.toUpperCase());
+                break;
+            case 'unit':
+                setUnit(value);
+                break;
+            case 'grade':
+                setGrade(value);
+                break;
+            case 'editCourse':
+                setEditCourse(value.toUpperCase());
+                break;
+            case 'editUnit':
+                setEditUnit(value);
+                break;
+            case 'editGrade':
+                setEditGrade(value);
+                break;
+            default:
+                break;
         }
       }
+    
+    const validateInputs = (): boolean => {
+    if (!course.trim() || !unit.trim() || !grade.trim()) {
+        alert('Please fill in all the input fields!');
+        return false;
+    }
+    return true;
+    };
 
+
+    const validateEditInputs = (): boolean => {
+        if (!editCourse.trim() || !editUnit.trim() || !editGrade.trim()) {
+            alert('Please fill in all the input fields!');
+            return false;
+        }
+        return true;
+        };
     const handleAddBtn = () => {
         // Check if any input field is empty
-        if (!course.trim() || !unit.trim() || !grade.trim()) {
-          alert('Please fill in all the input fields!');
-          return; // Exit the function if any field is empty
-        }
-        
+        if (!validateInputs()) return;
         addRow(course, unit, grade);
-        // Clear input fields after adding the row 
         setCourse('');
-        // setUnit('');
         setGrade('');
     };
 
@@ -106,6 +135,7 @@ export default function Main() {
     //       </div>
     //     );
     // };
+    
     const addRow = (course: string, unit: string, grade: string) => {
         const tableBody = document.getElementById('info_table')!.getElementsByTagName('tbody')[0];
       
@@ -133,10 +163,17 @@ export default function Main() {
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.className = 'text-red-500 hover:underline'; // Style the button
+        deleteButton.className = 'ml-2 text-red-500 hover:underline'; // Style the button
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.className = 'text-blue-500 hover:underline';
+        editButton.addEventListener('click', () => handleEditRow(newRow));
 
          // Get the index of the row to be deleted
         const rowIndex = tableBody.querySelectorAll('tr').length - 1; // Calculate index based on current rows
+       
+       
         // Add click event listener to the delete button
         deleteButton.addEventListener('click', () => {
             tableBody.removeChild(newRow); // Remove the entire row on click
@@ -155,9 +192,13 @@ export default function Main() {
             }
         });
 
+
+    
+
         // Append the delete button to the action cell
+        actionCell.appendChild(editButton);
         actionCell.appendChild(deleteButton);
-      
+        
         // Append the cells to the new row
         newRow.appendChild(subjectCell);
         newRow.appendChild(unitCell);
@@ -178,6 +219,43 @@ export default function Main() {
 
         // Calculate and update the average state using the helper function
     };
+
+
+    const handleEditRow = (row: HTMLTableRowElement): void => {
+        const rowIndex = Array.from(row.parentNode!.children).indexOf(row);
+        setEditIndex(rowIndex);
+        setIsEditing(true);
+        setEditCourse(row.children[0].textContent || '');
+        setEditUnit(row.children[1].textContent || '');
+        setEditGrade(row.children[2].textContent || '');
+      };
+    
+      const handleEditSubmit = (event: React.FormEvent): void => {
+        event.preventDefault();
+        if (editIndex === null || !validateEditInputs()) return;
+    
+        const updatedGradeList = [...gradeList];
+        const updatedUnitList = [...unitList];
+        updatedGradeList[editIndex] = parseFloat(editGrade);
+        updatedUnitList[editIndex] = parseInt(editUnit);
+    
+        setGradeList(updatedGradeList);
+        setUnitList(updatedUnitList);
+        setAverage(String(calculateAverage()));
+
+        // Update the table row content
+        const tableBody = document.getElementById('info_table')!.getElementsByTagName('tbody')[0];
+        const row = tableBody.children[editIndex] as HTMLTableRowElement;
+        row.children[0].textContent = editCourse;
+        row.children[1].textContent = editUnit;
+        row.children[2].textContent = editGrade;
+        
+        setIsEditing(false);
+        setEditIndex(null);
+        setEditCourse('');
+        setEditUnit('');
+        setEditGrade('');
+      };
 
       // useEffect to recalculate average when gradeList or unitList changes
     useEffect(() => {
@@ -205,6 +283,11 @@ export default function Main() {
     };
     
 
+    const hanndleCancelEditBtn = () => {
+
+        if (isEditing) setIsEditing(false)
+    }
+
     return (
         <div className="min-h-screen">
             <ProjectsNavbar />
@@ -215,7 +298,7 @@ export default function Main() {
                 <div className="flex flex-col">
                     <div className="flex flex-row gap-2">
                         <div className="w-full">
-                            <label htmlFor="course" className="block text-sm font-medium mb-2">Courses</label>
+                            <label htmlFor="course" className="block text-sm font-medium mb-2">Course</label>
                             <input 
                                 type="text" 
                                 id="course" 
@@ -227,7 +310,7 @@ export default function Main() {
                             />
                         </div>
                         <div className="w-full">
-                            <label htmlFor="grade" className="block text-sm font-medium mb-2">Grades</label>
+                            <label htmlFor="grade" className="block text-sm font-medium mb-2">Grade</label>
                             <input 
                                 type="text" 
                                 id="grade" 
@@ -304,6 +387,63 @@ export default function Main() {
                         </table>
                     </div>
                 </div>
+
+                {isEditing && (
+                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80">
+                        <form onSubmit={handleEditSubmit} className="flex flex-col  lg:flex-row gap-4 p-4 bg-white shadow-md rounded-md">
+                            <div className="flex flex-col">
+                            <label htmlFor="editCourse" className="block text-sm font-medium mb-2">Course</label>
+                            <input
+                                type="text"
+                                id="editCourse"
+                                name="editCourse"
+                                placeholder="Course Name"
+                                value={editCourse}
+                                onChange={handleChange}
+                                className="px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full"
+                            />
+                            </div>
+                            <div className="flex flex-col">
+                            <label htmlFor="editGrade" className="block text-sm font-medium mb-2">Grade</label>
+                            <input
+                                type="text"
+                                id="editGrade"
+                                name="editGrade"
+                                placeholder="Grade"
+                                value={editGrade}
+                                onChange={handleChange}
+                                className="px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full"
+                            />
+                            </div>
+                            <div className="flex flex-col">
+                            <label htmlFor="editUnit" className="block text-sm font-medium mb-2">Units</label>
+                            <input
+                                type="text"
+                                id="editUnit"
+                                name="editUnit"
+                                placeholder="Units"
+                                value={editUnit}
+                                onChange={handleChange}
+                                className="px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full"
+                            />
+                            </div>
+                            <button
+                            type="submit"
+                            className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
+                            Submit
+                            </button>
+
+                            <button
+                            type="button"
+                            className="bg-gray-400 text-white px-4 py-2 rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            onClick={hanndleCancelEditBtn}
+                            >
+                            cancel
+                            </button>
+                        </form>
+                        </div>
+                                )}
             </main>
             <Footer />  
         </div>
