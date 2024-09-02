@@ -21,7 +21,7 @@ export default function ProjectPage() { // Renamed to avoid conflict with the Pr
     <div className="min-h-screen">
       
       <Navbar />
-      <div className="flex flex-row py-8 px-6 flex-wrap min-h-screen"> {/* Added flex-wrap for responsiveness */}
+      <div className="flex flex-row py-8 px-10 ml-2 justify-center flex-wrap min-h-screen lg:justify-start"> {/* Added flex-wrap for responsiveness */}
         {projects.map((project) => (
           <Link key={project.id} href={project.link} passHref prefetch={false}>
             <div className="max-w-sm rounded-md overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer m-4">
