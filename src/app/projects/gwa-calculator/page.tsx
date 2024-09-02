@@ -163,7 +163,7 @@ export default function Main() {
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.className = 'ml-2 text-red-500 hover:underline'; // Style the button
+        deleteButton.className = 'md:ml-2 lg:ml-2 text-red-500 hover:underline'; // Style the button
 
         const editButton = document.createElement('button');
         editButton.textContent = 'Edit';
