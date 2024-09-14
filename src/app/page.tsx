@@ -56,7 +56,7 @@ export default function Home() {
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 md:text-3xl lg:text-4xl">Contact</h2>
             <div className="flex justify-center mt-6">
-              <a href="https://github.com/AuxiliumGuru" className="mx-2" aria-label="GitHub">
+              <a href="https://github.com/auxghlann" className="mx-2" aria-label="GitHub">
                 <FontAwesomeIcon icon={faGithub} size="2x" className="text-gray-800 hover:text-gray-600" />
               </a>
               <a href="https://www.facebook.com/allankhester.mesa/" className="mx-2" aria-label="Facebook">
